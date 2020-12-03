@@ -1,6 +1,11 @@
 .scroll {
     height: 80vh;
     overflow-y: auto;
+    background: #d6e0f0;
+    padding: 1rem;
+    @media (min-width: 1024px) {
+        padding: 20px 40px;
+    }
 }
 .scroll::-webkit-scrollbar {
     display: none;

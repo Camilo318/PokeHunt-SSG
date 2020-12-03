@@ -1,9 +1,9 @@
 import React from 'react'
 import Pokemon from '../components/Pokemon'
-
+import style from './styles/Pokedex.module.scss'
 const Pokedex = ({current, perPage, currentPage}) => {
     return (
-        <section className="pokedex">
+        <section className={style.pokedex}>
             {current.map((pokemon, index) => (
                 <Pokemon
                 key={index}
