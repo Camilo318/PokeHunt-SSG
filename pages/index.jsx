@@ -22,6 +22,10 @@ const Home = ({ pokedex }) => {
     const current = pokedex.slice(lowerLimit, upperLimit)
     const pageCount = Math.ceil(pokedex.length / perPage)
 
+    function paginate(page) {
+        setCurrentPage(page.selected)
+    }
+
     return (
         <>
             <section className="pokedex">
@@ -32,7 +36,10 @@ const Home = ({ pokedex }) => {
                 ))}
             </section>
 
-            <Pagination pageCount={pageCount} currentPage={currentPage}/>
+            <Pagination
+            pageCount={pageCount}
+            currentPage={currentPage}
+            paginate={paginate}/>
         </>
     )
 }
