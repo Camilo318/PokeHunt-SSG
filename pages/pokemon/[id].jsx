@@ -1,5 +1,5 @@
 import React from 'react'
-const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=841'
+const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=5'
 
 export async function getStaticPaths() {
     const res = await fetch(api)

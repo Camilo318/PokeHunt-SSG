@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Pagination from '../components/Pagination'
 import Pokedex from '../components/Pokedex'
-
+import Scroll from '../components/Scroll'
 const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=841'
 
 export async function getStaticProps() {
@@ -29,11 +29,12 @@ const Home = ({ pokedex }) => {
 
     return (
         <>
-            <Pokedex
-            current={current}
-            perPage={perPage}
-            currentPage={currentPage}
-            />
+            <Scroll >
+                <Pokedex
+                current={current}
+                perPage={perPage}
+                currentPage={currentPage}/>
+            </Scroll>
             <Pagination
             pageCount={pageCount}
             currentPage={currentPage}
