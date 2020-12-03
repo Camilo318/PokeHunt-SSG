@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ReactPaginate from 'react-paginate'
+import Pagination from '../components/Pagination'
+
 const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=841'
 
 export async function getStaticProps() {
@@ -22,7 +23,7 @@ const Home = ({ pokedex }) => {
     const pageCount = Math.ceil(pokedex.length / perPage)
 
     return (
-            <>
+        <>
             <section className="pokedex">
                 {current.map(pokemon => (
                     <div key={pokemon.url}>
@@ -30,23 +31,8 @@ const Home = ({ pokedex }) => {
                     </div>
                 ))}
             </section>
-            <ReactPaginate 
-            previousLabel={'prev'}
-            nextLabel={'next'}
-            breakLabel={'...'}
-            pageCount={pageCount}
-            pageRangeDisplayed={12}
-            marginPagesDisplayed={3}
-            // onPageChange={paginate}
-            containerClassName={'pagination'}
-            pageClassName={'page'}
-            previousClassName={'page'}
-            nextClassName={'page'}
-            pageLinkClassName={'link'}
-            nextLinkClassName={'link'}
-            previousLinkClassName={'link'}
-            activeLinkClassName={'active'}
-            initialPage={currentPage}/>
+
+            <Pagination pageCount={pageCount} currentPage={currentPage}/>
         </>
     )
 }
