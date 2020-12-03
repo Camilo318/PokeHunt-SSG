@@ -1,0 +1,25 @@
+.header {
+    background-color: #fafafa;
+    height: 8vh;
+    box-shadow: 0 5px 10px rgba(0, 64, 128, 0.05);
+}
+
+.header__container {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+        margin: 0;
+    }
+
+    span {
+        display: block;
+        color: #becfdf;
+        cursor: pointer;
+        &:hover {
+            color: #393b44;
+        }
+    }
+}

@@ -24,24 +24,26 @@ ul {
 
 .pagination {
     position: fixed;
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 1%;
     z-index: 1;
-    width: 90%;
-    background-color: #fafafa;
-    border-radius: 5px;
-    overflow: auto;
+    width: 100%;
     padding: 0 1rem;
-    &::-webkit-scrollbar {
-        display: none;
+    @media (min-width: 1024px) {
+        padding: 0 40px;
     }
+    
     ul {
+        overflow: auto;
+        border-radius: 5px;
+        background-color: #fafafa;
         list-style: none;
         display: flex;
         padding: 0;
         margin: 0;
         align-items: center;
+    }
+    ul::-webkit-scrollbar {
+        display: none;
     }
 }
 
