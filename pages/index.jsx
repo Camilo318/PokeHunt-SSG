@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Pagination from '../components/Pagination'
+import Pokemon from '../components/Pokemon'
 
 const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=841'
 
@@ -29,10 +30,12 @@ const Home = ({ pokedex }) => {
     return (
         <>
             <section className="pokedex">
-                {current.map(pokemon => (
-                    <div key={pokemon.url}>
+                {current.map((pokemon, index) => (
+                    <Pokemon
+                    key={index}
+                    id={(index + 1) + (perPage * currentPage)}>
                         {pokemon.name}
-                    </div>
+                    </Pokemon>
                 ))}
             </section>
 
