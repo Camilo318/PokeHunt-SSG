@@ -1,12 +1,13 @@
 .aside {
+    flex: 1;
+    align-self: stretch;
+    position: sticky;
+    top: 0;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 7px;
     background-color: #fafafa;
     height: 100%;
     display: none;
-    flex: 1;
-    position: sticky;
-    top: -20px;
     @media (min-width: 768px) {
         display: block;
         margin-left: 0.875rem;
@@ -14,6 +15,9 @@
 }
 
 .aside__container {
+    h3 {
+        color: #456268;
+    }
     .search {
         position: relative;
         input {
