@@ -1,5 +1,7 @@
 .scroll {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 80vh;
     overflow-y: auto;
     background: #d6e0f0;
@@ -11,5 +13,13 @@
     }
 }
 // .scroll::-webkit-scrollbar {
-//     display: none;
+//     height: 10px;
+//     width: 10px;
+// }
+// .scroll::-webkit-scrollbar-thumb {
+//     border-radius: 10px;
+//     background-color: #d6e0f0;
+// }
+// .scroll::-webkit-scrollbar-track {
+//     background-color: #d6e0f0;
 // }
