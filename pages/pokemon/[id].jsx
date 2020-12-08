@@ -1,4 +1,7 @@
 import React from 'react'
+import Image from 'next/image'
+import Aside from '../../components/Aside'
+import style from '../../components/styles/PokemonDetail.module.scss'
 const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=5'
 
 export async function getStaticPaths() {
@@ -27,21 +30,30 @@ export async function getStaticProps({ params }) {
             pokemon
         }
     }
-
 }
 
 const PokemonDetail = ({ pokemon }) => {
+    const id = pokemon?.id.toString()
+    const name = pokemon?.name
+    const nameP = name[0].toUpperCase() + name.slice(1)
+    const source = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
     return (
-        <>
-          <div className="pokemon-container">
-              <div className="pokemon-detail">
-                  <div className="pokemon-detail__image">
-                      <h2>{pokemon?.name}</h2>
-                      <h3>{pokemon?.id}</h3>
-                  </div>
-              </div>
-          </div>
-        </>
+        <div className={style.pokemon__container}>
+            <div className={style.pokemon__detail}>
+                <div className={style.pokemon__image}>
+                    <Image
+                    src={source}
+                    width={500}
+                    height={500}
+                    alt={`Picture of ${pokemon?.name}`}
+                    />
+                </div>
+                <div className={style.pokemon__info}>
+                    <h3>{nameP} {id.padStart(3,0)}</h3>
+                </div>
+            </div>
+            <Aside />
+        </div>
     )
 }
 
