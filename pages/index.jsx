@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from '../components/Pagination'
 import Pokedex from '../components/Pokedex'
 import Scroll from '../components/Scroll'
 import Aside from '../components/Aside'
+import { useAppState } from '../components/AppProvider'
 
 const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=841'
 
@@ -18,15 +19,27 @@ export async function getStaticProps() {
 
 const Home = ({ pokedex }) => {
 
+    useEffect(() => {
+        dispatch({
+            type: 'set-all-pokemons',
+            payload: pokedex
+        })
+    }, [])
+
+    const [state, dispatch] = useAppState()
+    const { currentPage } = state
+
     const [perPage] = useState(18)
-    const [currentPage, setCurrentPage] = useState(0)
     const upperLimit = perPage * (currentPage + 1)
     const lowerLimit = upperLimit - perPage
     const current = pokedex.slice(lowerLimit, upperLimit)
     const pageCount = Math.ceil(pokedex.length / perPage)
 
     function paginate(page) {
-        setCurrentPage(page.selected)
+        dispatch({
+            type: 'set-page',
+            payload: page.selected
+        })
     }
 
     return (

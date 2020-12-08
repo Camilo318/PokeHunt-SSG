@@ -2,6 +2,7 @@
 import Layout from '../components/Layout'
 import '../style.scss'
 import {AppProvider } from '../components/AppProvider'
+
 function MyApp({ Component, pageProps }) {
 
     return (

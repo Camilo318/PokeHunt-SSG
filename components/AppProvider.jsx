@@ -3,17 +3,28 @@ import React, {createContext, useContext, useReducer } from 'react'
 //Context object
 const AppContext = createContext() // Share data through component tree
 
-//Custom hook to suscribe to context changes
+//Custom hook to subscribe to context changes
 export const useAppState = () => useContext(AppContext)
 
 
-const appStateReducer = (action, state) => {
+const appStateReducer = (state, action) => {
     switch (action.type) {
+        case 'set-page':
+            return {
+                ...state,
+                currentPage: action.payload
+            }
+        case 'set-all-pokemons':
+            return {
+                ...state,
+                allPokemons: action.payload
+            }
         default:
             return state
     }
 }
 const initialState = {
+    currentPage: 0,
     myPokemons: [],
     allPokemons: []
 }
