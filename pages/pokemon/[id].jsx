@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Aside from '../../components/Aside'
 import style from '../../components/styles/PokemonDetail.module.scss'
 import { useAppState } from '../../components/AppProvider'
+import { useRouter } from 'next/router'
 
 
 export async function getStaticPaths() {
@@ -48,6 +49,7 @@ const PokemonDetail = ({ pokemon }) => {
         pokemon.name === name
     ))
 
+    const router = useRouter()
     function addPokemon() {
         console.log('Add')
         dispatch({
@@ -78,9 +80,9 @@ const PokemonDetail = ({ pokemon }) => {
                 </div>
                 <div className={style.pokemon__info}>
                     <h3>{nameP} {id.padStart(3,0)}</h3>
-                    <p>Height: {height/10}m</p>
-                    <p>Weight: {weight/10}kg</p>
-                    <p>Base Experience: {exp}</p>
+                    <p>{`Height: ${height/10}m`}</p>
+                    <p>{`Weight: ${weight/10}kg`}</p>
+                    <p>{`Base Experience: ${exp}`}</p>
                     { duplicate
                     ?
                     <button className={style.delete}
@@ -92,6 +94,10 @@ const PokemonDetail = ({ pokemon }) => {
                     onClick={addPokemon}>
                         Add Pokemon
                     </button> }
+
+                    <button onClick={() => router.push('/')}>
+                        Go back
+                    </button>
                 </div>
             </div>
             <Aside />
