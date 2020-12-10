@@ -2,9 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import Aside from '../../components/Aside'
 import style from '../../components/styles/PokemonDetail.module.scss'
-const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=5'
+import { useAppState } from '../../components/AppProvider'
+
 
 export async function getStaticPaths() {
+    const api = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=5'
     const res = await fetch(api)
     const data = await res.json()
     const { results } = data
@@ -36,6 +38,16 @@ const PokemonDetail = ({ pokemon }) => {
     const id = pokemon?.id.toString()
     const name = pokemon?.name
     const nameP = name[0].toUpperCase() + name.slice(1)
+    const height = pokemon?.height
+    const weight = pokemon?.weight
+    const exp = pokemon?.base_experience
+    
+    const [state, dispatch] = useAppState()
+    const { myPokemons } = state
+    const duplicate = myPokemons.find(pokemon => (
+        pokemon.name === name
+    ))
+
     const source = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
     return (
         <div className={style.pokemon__container}>
@@ -43,13 +55,25 @@ const PokemonDetail = ({ pokemon }) => {
                 <div className={style.pokemon__image}>
                     <Image
                     src={source}
-                    width={500}
-                    height={500}
+                    width={425}
+                    height={425}
                     alt={`Picture of ${pokemon?.name}`}
                     />
                 </div>
                 <div className={style.pokemon__info}>
                     <h3>{nameP} {id.padStart(3,0)}</h3>
+                    <p>Height: {height/10}m</p>
+                    <p>Weight: {weight/10}kg</p>
+                    <p>Base Experience: {exp}</p>
+                    { duplicate
+                    ?
+                    <button>
+                        Delete Pokemon
+                    </button>
+                    :
+                    <button>
+                        Add Pokemon
+                    </button> }
                 </div>
             </div>
             <Aside />
