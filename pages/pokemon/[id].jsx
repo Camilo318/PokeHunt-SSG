@@ -48,6 +48,22 @@ const PokemonDetail = ({ pokemon }) => {
         pokemon.name === name
     ))
 
+    function addPokemon() {
+        console.log('Add')
+        dispatch({
+            type: 'add-pokemon',
+            payload: pokemon
+        })
+    }
+
+    function deletePokemon() {
+        console.log('Delete')
+        dispatch({
+            type: 'delete-pokemon',
+            payload: id
+        })
+    }
+
     const source = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
     return (
         <div className={style.pokemon__container}>
@@ -67,11 +83,13 @@ const PokemonDetail = ({ pokemon }) => {
                     <p>Base Experience: {exp}</p>
                     { duplicate
                     ?
-                    <button>
+                    <button className={style.delete}
+                    onClick={deletePokemon}>
                         Delete Pokemon
                     </button>
                     :
-                    <button>
+                    <button className={style.add}
+                    onClick={addPokemon}>
                         Add Pokemon
                     </button> }
                 </div>

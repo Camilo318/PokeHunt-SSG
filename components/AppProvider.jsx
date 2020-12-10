@@ -19,6 +19,18 @@ const appStateReducer = (state, action) => {
                 ...state,
                 allPokemons: action.payload
             }
+        case 'add-pokemon':
+            return {
+                ...state,
+                myPokemons: [...state.myPokemons, action.payload]
+            }
+        case 'delete-pokemon':
+            return {
+                ...state,
+                myPokemons: state.myPokemons.filter(pokemon => (
+                    pokemon.id != action.payload
+                ))
+            }
         default:
             return state
     }
