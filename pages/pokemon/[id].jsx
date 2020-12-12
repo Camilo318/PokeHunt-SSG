@@ -66,7 +66,9 @@ const PokemonDetail = ({ pokemon }) => {
         })
     }
 
-    const source = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
+    const source = (
+        `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
+    )
     return (
         <div className={style.pokemon__container}>
             <div className={style.pokemon__detail}>
