@@ -16,7 +16,9 @@ const Aside = () => {
 
                 <div className={style.vault}>
                     { pokemons.map(pokemon => (
-                        <CapturedPokemon pokemon={pokemon}/>
+                        <CapturedPokemon
+                        key={pokemon.id}
+                        pokemon={pokemon}/>
                     )) }
                 </div>
 
