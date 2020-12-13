@@ -5,6 +5,7 @@
     padding: 10px;
     border-radius: 7px;
     background-color: #fafafa;
+    height: 100%;
     display: none;
     @media (min-width: 768px) {
         display: block;
@@ -44,6 +45,8 @@
     .vault {
         display: flex;
         flex-wrap: wrap;
+        max-height: 400px;
+        overflow-y: scroll;
     }
 }
 
