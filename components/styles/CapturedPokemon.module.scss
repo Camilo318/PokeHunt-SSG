@@ -1,10 +1,10 @@
 .vault__pokemon {
-    margin: 4px;
-    width: calc(25% - 8px);
+  margin: 4px;
+  width: calc(25% - 8px);
+  display: block;
+  img {
+    width: 100%;
+    height: auto;
     display: block;
-    img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
+  }
 }

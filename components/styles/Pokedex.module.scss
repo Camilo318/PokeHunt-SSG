@@ -1,18 +1,18 @@
 .pokedex {
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
-        width: 60%;
-        margin: 0;
-    }
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    margin: 0;
+  }
 
-    @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
-        width: 75%;
-        margin: 0;
-    }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    margin: 0;
+  }
 }

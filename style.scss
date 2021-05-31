@@ -1,73 +1,73 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 html {
-    background-color: #d6e0f0;
+  background-color: #d6e0f0;
 }
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .pagination {
-    position: fixed;
-    bottom: 1%;
-    z-index: 1;
-    width: 100%;
-    padding: 0 1rem;
-    @media (min-width: 1024px) {
-        padding: 0 40px;
-    }
-    
-    ul {
-        overflow: auto;
-        border-radius: 5px;
-        background-color: #fafafa;
-        list-style: none;
-        display: flex;
-        padding: 0;
-        margin: 0;
-        align-items: center;
-    }
-    ul::-webkit-scrollbar {
-        display: none;
-    }
+  position: fixed;
+  bottom: 1%;
+  z-index: 1;
+  width: 100%;
+  padding: 0 1rem;
+  @media (min-width: 1024px) {
+    padding: 0 40px;
+  }
+
+  ul {
+    overflow: auto;
+    border-radius: 5px;
+    background-color: #fafafa;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .page {
-    flex: 1;
-    padding: 1rem;
-    cursor: pointer;
+  flex: 1;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .link {
-    color: #00343d;
-    font-weight: 500;
-    padding: 0.5rem;
-    display: block;
-    border-radius: 5px;
-    text-align: center;
-    &:hover {
-        background-color: #0bd8a2;
-    }
-    &:focus {
-        outline: none;
-    }
+  color: #00343d;
+  font-weight: 500;
+  padding: 0.5rem;
+  display: block;
+  border-radius: 5px;
+  text-align: center;
+  &:hover {
+    background-color: #0bd8a2;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
 .active {
-    background-color: #dafff3;
+  background-color: #dafff3;
 }
